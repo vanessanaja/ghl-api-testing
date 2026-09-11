@@ -65,3 +65,39 @@ Verify that a new contact can be created successfully and then retrieved by its 
 - Returned contact data matched the created QA contact.
 
 **Status:** PASS
+
+## TC-003: Update Contact and Verify Existing Data Is Preserved
+
+**Objective:**  
+Verify that updating selected contact fields changes only the submitted fields and preserves existing contact data that was not included in the request.
+
+**Preconditions:**
+- Existing QA contact
+- Valid GoHighLevel access token
+- Correct API version header is included
+
+**Steps:**
+1. Send an update request for an existing contact.
+2. Change the contact's first and last name.
+3. Do not include the existing email address in the request body.
+4. Verify the update request returns `200 OK`.
+5. Retrieve the contact again by ID.
+6. Confirm the updated name values are present.
+7. Confirm the existing email address remains unchanged.
+8. Confirm the changes are reflected in the GoHighLevel UI.
+
+**Expected Result:**
+- Update request returns `200 OK`.
+- Submitted name fields are updated.
+- Existing email remains unchanged.
+- Retrieved API data matches the updated contact record.
+- GoHighLevel UI reflects the same changes.
+
+**Actual Result:**
+- Update request returned `200 OK`.
+- First and last name were updated successfully.
+- Existing email remained unchanged.
+- Retrieval request returned `200 OK`.
+- Updated values were confirmed in both Postman and GoHighLevel.
+
+**Status:** PASS
