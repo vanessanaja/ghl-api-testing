@@ -101,3 +101,33 @@ Verify that updating selected contact fields changes only the submitted fields a
 - Updated values were confirmed in both Postman and GoHighLevel.
 
 **Status:** PASS
+
+## TC-004: Delete Contact and Verify Removal
+
+**Objective:**  
+Verify that an existing contact can be deleted successfully and is no longer retrievable afterward.
+
+**Preconditions:**
+- Existing QA contact
+- Valid GoHighLevel access token
+- Correct API version header is included
+
+**Steps:**
+1. Send a delete request for an existing contact.
+2. Verify the delete request returns a successful response.
+3. Send a get-contact request using the same contact ID.
+4. Verify the deleted contact is no longer returned.
+5. Confirm the contact is no longer visible in the GoHighLevel UI.
+
+**Expected Result:**
+- Delete request succeeds.
+- Deleted contact cannot be retrieved afterward.
+- API returns an appropriate not-found response.
+- Contact is no longer present in the GoHighLevel UI.
+
+**Actual Result:**
+- Delete request returned `200 OK`.
+- Follow-up retrieval returned `400` with a contact-not-found response.
+- Contact was confirmed absent from the GoHighLevel UI.
+
+**Status:** PASS
