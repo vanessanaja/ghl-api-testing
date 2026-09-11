@@ -150,8 +150,32 @@ Verify that the API returns an appropriate error when a contact is requested usi
 - API rejects the request.
 - Response indicates that the contact could not be found.
 
-**Actual Result:**
-- API returned `400`.
+- API returned `400 Bad Request`.
 - Response indicated that the contact was not found.
+
+**Status:** PASS
+
+## TC-006: Retrieve Contact Without Authentication
+
+**Objective:**  
+Verify that the API rejects a contact retrieval request when no authorization token is provided.
+
+**Preconditions:**
+- Correct API version header is included
+- Valid contact endpoint is used
+
+**Steps:**
+1. Send a get-contact request without an Authorization header.
+2. Keep the `Version: v3` header included.
+3. Review the HTTP status code.
+4. Review the error response.
+
+**Expected Result:**
+- API returns `401 Unauthorized`.
+- Response indicates that authentication is required or missing.
+
+**Actual Result:**
+- API returned `401`.
+- Response message: `No Authorization header found for authentication!`
 
 **Status:** PASS
