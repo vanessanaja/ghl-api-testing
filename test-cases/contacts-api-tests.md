@@ -33,3 +33,35 @@ Verify that a valid contact ID returns the expected contact record.
 - Requested contact record was returned successfully
 
 **Status:** PASS
+
+## TC-002: Create Contact and Verify Persistence
+
+**Objective:**  
+Verify that a new contact can be created successfully and then retrieved by its returned contact ID.
+
+**Preconditions:**
+- Valid GoHighLevel access token
+- Valid location ID
+- Correct API version header is included
+
+**Steps:**
+1. Send a request to create a new QA contact.
+2. Verify the contact creation response is successful.
+3. Capture the contact ID returned in the response.
+4. Send a request to retrieve the newly created contact by ID.
+5. Verify the retrieval response returns `200 OK`.
+6. Confirm the returned contact data matches the data submitted during creation.
+
+**Expected Result:**
+- Contact is created successfully.
+- A valid contact ID is returned.
+- The newly created contact can be retrieved using that ID.
+- Retrieved data matches the submitted test data.
+
+**Actual Result:**
+- Contact was created successfully.
+- A contact ID was returned.
+- Retrieval request returned `200 OK`.
+- Returned contact data matched the created QA contact.
+
+**Status:** PASS
