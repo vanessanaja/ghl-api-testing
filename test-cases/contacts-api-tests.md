@@ -131,3 +131,27 @@ Verify that an existing contact can be deleted successfully and is no longer ret
 - Contact was confirmed absent from the GoHighLevel UI.
 
 **Status:** PASS
+
+## TC-005: Retrieve Contact Using Invalid ID
+
+**Objective:**  
+Verify that the API returns an appropriate error when a contact is requested using an invalid contact ID.
+
+**Preconditions:**
+- Valid GoHighLevel access token
+- Correct API version header is included
+
+**Steps:**
+1. Send a get-contact request using an invalid contact ID.
+2. Review the HTTP status code.
+3. Review the error response.
+
+**Expected Result:**
+- API rejects the request.
+- Response indicates that the contact could not be found.
+
+**Actual Result:**
+- API returned `400`.
+- Response indicated that the contact was not found.
+
+**Status:** PASS
