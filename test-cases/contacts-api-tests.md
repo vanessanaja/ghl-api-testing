@@ -357,7 +357,7 @@ Verify that the API rejects a delete request when the specified contact ID does 
 
 **Actual Result:**
 - API returned `400 Bad Request`.
-- Response message: `Contact with id [sanitized] not found`.
+- Response message: `Contact with id [contactId] not found`.
 
 **Status:** PASS
 
