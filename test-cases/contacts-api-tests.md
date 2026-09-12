@@ -258,3 +258,38 @@ Verify that the API rejects a contact retrieval request when the required versio
 - Response message: `version header was not found.`
 
 **Status:** PASS
+
+## TC-008: Create Contact Without Location ID
+
+**Method:** POST  
+**Endpoint:** `/contacts/`
+
+**Objective:**  
+Verify that the API rejects a contact creation request when the required location ID is omitted.
+
+**Preconditions:**
+- Valid GoHighLevel access token
+- Correct API version header is included
+
+**Request Setup:**
+- Authorization: Bearer Token
+- Header: `Version: v3`
+- Request body contains valid contact data
+- `locationId` is omitted from the request body
+
+**Steps:**
+1. Send a POST request to create a new contact.
+2. Do not include `locationId` in the request body.
+3. Review the HTTP status code.
+4. Review the error response.
+
+**Expected Result:**
+- API rejects the request.
+- Response indicates that valid location context is required.
+
+**Actual Result:**
+- API returned `403 Forbidden`.
+- Response message: `The token does not have access to this location.`
+
+**Status:** PASS
+
