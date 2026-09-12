@@ -328,3 +328,35 @@ Verify that the API rejects a contact creation request when the email field cont
 - Response message: `email must be an email`.
 
 **Status:** PASS
+
+## TC-010: Delete Contact Using Nonexistent ID
+
+**Method:** DELETE  
+**Endpoint:** `/contacts/{invalidContactId}`
+
+**Objective:**  
+Verify that the API rejects a delete request when the specified contact ID does not exist.
+
+**Preconditions:**
+- Valid GoHighLevel access token
+- Correct API version header is included
+
+**Request Setup:**
+- Authorization: Bearer Token
+- Header: `Version: v3`
+- Nonexistent contact ID is used in the endpoint
+
+**Steps:**
+1. Send a DELETE request using a nonexistent contact ID.
+2. Review the HTTP status code.
+3. Review the error response.
+
+**Expected Result:**
+- API rejects the request.
+- Response indicates that the contact could not be found.
+
+**Actual Result:**
+- API returned `400 Bad Request`.
+- Response message: `Contact with id [sanitized] not found`.
+
+**Status:** PASS
