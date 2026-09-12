@@ -360,3 +360,37 @@ Verify that the API rejects a delete request when the specified contact ID does 
 - Response message: `Contact with id [sanitized] not found`.
 
 **Status:** PASS
+
+## TC-011: Update Contact Using Nonexistent ID
+
+**Method:** PUT  
+**Endpoint:** `/contacts/{invalidContactId}`
+
+**Objective:**  
+Verify that the API rejects an update request when the specified contact ID does not exist.
+
+**Preconditions:**
+- Valid GoHighLevel access token
+- Correct API version header is included
+
+**Request Setup:**
+- Authorization: Bearer Token
+- Header: `Version: v3`
+- Nonexistent contact ID is used in the endpoint
+- Request body contains valid update data
+
+**Steps:**
+1. Send a PUT request using a nonexistent contact ID.
+2. Include valid contact update data in the request body.
+3. Review the HTTP status code.
+4. Review the error response.
+
+**Expected Result:**
+- API rejects the request.
+- Response indicates that the contact could not be found.
+
+**Actual Result:**
+- API returned `400 Bad Request`.
+- Response message: `Contact with id {contactId} not found`.
+
+**Status:** PASS
