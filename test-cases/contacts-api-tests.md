@@ -293,3 +293,38 @@ Verify that the API rejects a contact creation request when the required locatio
 
 **Status:** PASS
 
+## TC-009: Create Contact With Invalid Email Format
+
+**Method:** POST  
+**Endpoint:** `/contacts/`
+
+**Objective:**  
+Verify that the API rejects a contact creation request when the email field contains an invalid email format.
+
+**Preconditions:**
+- Valid GoHighLevel access token
+- Valid location ID
+- Correct API version header is included
+
+**Request Setup:**
+- Authorization: Bearer Token
+- Header: `Version: v3`
+- Request body contains valid contact data
+- Email value is intentionally formatted incorrectly
+
+**Steps:**
+1. Send a POST request to create a new contact.
+2. Include a valid `locationId`.
+3. Provide an invalid email value.
+4. Review the HTTP status code.
+5. Review the error response.
+
+**Expected Result:**
+- API rejects the request.
+- Response indicates that the email format is invalid.
+
+**Actual Result:**
+- API returned `422 Unprocessable Entity`.
+- Response message: `email must be an email`.
+
+**Status:** PASS
