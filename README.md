@@ -1,15 +1,19 @@
 # GoHighLevel API Testing Portfolio
 
-This project documents hands-on REST API testing performed against a real GoHighLevel account using Postman.
+This project demonstrates hands-on REST API testing performed against a real GoHighLevel account using Postman.
 
-## Project Goals
+## Project Scope
 
-- Practice manual REST API testing in a real SaaS environment
-- Test common API operations including GET, POST, PUT/PATCH, and DELETE
-- Validate status codes, response bodies, headers, and request data
-- Perform positive and negative testing
-- Identify and document defects and unexpected behavior
-- Build practical experience with Postman, Git, and GitHub
+Testing focused on the GoHighLevel Contacts API and included:
+
+- GET, POST, PUT, and DELETE operations
+- Contact creation and retrieval
+- Contact updates and data preservation
+- Contact deletion and verification
+- Authentication and version-header validation
+- Missing required data
+- Invalid email validation
+- Invalid and nonexistent contact IDs
 
 ## Tools
 
@@ -19,10 +23,30 @@ This project documents hands-on REST API testing performed against a real GoHigh
 - GitHub
 - Visual Studio Code
 
-## Testing Scope
+## Test Results
 
-Testing is currently in progress. Test cases, Postman collections, results, and supporting documentation will be added as the project develops.
+- Total test cases: 11
+- Passed: 11
+- Failed: 0
+
+## Portfolio Artifacts
+
+- [Contacts API Test Cases](test-cases/contacts-api-tests.md)
+- [Contacts API Test Summary](test-summary/contacts-api-test-summary.md)
+- [Sanitized Postman Collection](postman/GoHighLevel-API-Testing.sanitized.postman_collection.json)
+
+## Key Skills Demonstrated
+
+- Manual REST API testing
+- Positive and negative testing
+- HTTP methods and status-code validation
+- Request headers and authentication testing
+- JSON request and response validation
+- Data persistence verification
+- API and UI cross-checking
+- Test case documentation
+- Git and GitHub workflow
 
 ## Security and Privacy
 
-This repository contains only sanitized testing artifacts. API credentials, access tokens, private account identifiers, and personally identifiable information are not included.
+This repository contains only sanitized testing artifacts. API credentials, access tokens, private account identifiers, real contact IDs, and personally identifiable information have been removed or replaced with placeholders.
