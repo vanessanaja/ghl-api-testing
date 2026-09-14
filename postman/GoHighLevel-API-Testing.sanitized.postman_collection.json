@@ -1,0 +1,414 @@
+{
+  "info": {
+    "name": "GoHighLevel API Testing",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "GET Contact - Valid ID",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{accessToken}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "Version",
+            "value": "v3",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{baseURL}}/contacts/{{contactId}}",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "contacts",
+            "{{contactId}}"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "POST Contact - Create and Verify",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{accessToken}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [
+          {
+            "key": "Version",
+            "value": "v3",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"firstName\": \"QA\",\n  \"lastName\": \"Test\",\n  \"email\": \"qa-test-001@example.com\",\n  \"locationId\": \"{{locationId}}\",\n  \"source\": \"QA Portfolio API Test\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseURL}}/contacts/",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "contacts",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "PUT Contact - Nonexistent ID",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{accessToken}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Version",
+            "value": "v3",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"firstName\": \"QA Updated\",\n  \"lastName\": \"Test Updated\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseURL}}/contacts/nonexistent-contact-id",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "contacts",
+            "nonexistent-contact-id"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "DELETE Contact - Nonexistent ID",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{accessToken}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Version",
+            "value": "v3",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{baseURL}}/contacts/nonexistent-contact-id",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "contacts",
+            "nonexistent-contact-id"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET Contact - No Authentication",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "Version",
+            "value": "v3",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{baseURL}}/contacts/{{contactId}}",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "contacts",
+            "{{contactId}}"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "DELETE Contact - Verify Removal",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{accessToken}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Version",
+            "value": "v3",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{baseURL}}/contacts/{{contactId}}",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "contacts",
+            "{{contactId}}"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET Contact - No Version Header",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{accessToken}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseURL}}/contacts/{{contactId}}",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "contacts",
+            "{{contactId}}"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "POST Contact - Invalid Email Format",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{accessToken}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [
+          {
+            "key": "Version",
+            "value": "v3",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"firstName\": \"QA\",\n  \"lastName\": \"Negative Test 3\",\n  \"email\": \"qa-test-001example2.com\",\n  \"locationId\": \"{{locationId}}\",\n  \"source\": \"QA Portfolio API Test\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseURL}}/contacts/",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "contacts",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "POST Contact - Missing Location ID",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{accessToken}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [
+          {
+            "key": "Version",
+            "value": "v3",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"firstName\": \"QA\",\n  \"lastName\": \"Negative Test 3\",\n  \"email\": \"qa-test-001@example2.com\",\n  \"source\": \"QA Portfolio API Test\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseURL}}/contacts/",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "contacts",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "PUT Contact - Update and Preserve Existing Data",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{accessToken}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Version",
+            "value": "v3",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"firstName\": \"QA Updated\",\n  \"lastName\": \"Test Updated\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseURL}}/contacts/{{contactId}}",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "contacts",
+            "{{contactId}}"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET Contact - Invalid ID",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{accessToken}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "Version",
+            "value": "v3",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{baseURL}}/contacts/invalid-contact-id",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "contacts",
+            "invalid-contact-id"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
